@@ -15,16 +15,6 @@ Il répond à partir des sources officielles à jour (Légifrance, code.travail.
 
 ## Installation
 
-Le skill est du Markdown : il fonctionne avec tout agent capable de lire des fichiers.
-
-### Le plus simple : demander à votre agent
-
-Dans Claude Code, Codex ou tout agent qui a accès au terminal, copiez-collez :
-
-```
-Installe le skill du repo github https://github.com/thomandre/droit-du-travail
-```
-
 ### Préparer le zip (pour les imports par upload)
 
 claude.ai et ChatGPT attendent un `.zip` dont le dossier racine contient `SKILL.md` :
@@ -49,25 +39,7 @@ Le skill se charge tout seul dès qu'une question touche au droit du travail. Po
 
 ### ChatGPT
 
-**Offres Business, Enterprise, Edu** : ChatGPT accepte l'upload de skills si l'administrateur de l'espace de travail l'autorise ([aide OpenAI](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)). Uploadez `droit-du-travail.zip`.
-
-**Offres Free / Plus / Pro** : il n'y a pas d'upload de skill. Utilisez un *Projet* (ou un GPT personnalisé) :
-
-1. Créez un projet « Droit du travail ».
-2. Collez le contenu de `SKILL.md` dans les **instructions** du projet.
-3. Ajoutez les fichiers de `references/` comme **fichiers** du projet.
-4. Activez la recherche web : le skill s'appuie sur la vérification des sources officielles.
-
-### Codex et autres agents
-
-Copiez le dossier dans le répertoire de skills de l'outil :
-
-| Outil | Dossier |
-|---|---|
-| Codex | `~/.codex/skills/` |
-| Cursor | `~/.cursor/skills/` |
-| GitHub Copilot | `~/.copilot/skills/` |
-| Gemini CLI | `~/.gemini/skills/` |
+Sur les offres Business, Enterprise, Healthcare et Edu, ChatGPT accepte l'upload de skills si l'administrateur de l'espace de travail l'autorise ([aide OpenAI](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)). Uploadez `droit-du-travail.zip`.
 
 ### Profil
 
