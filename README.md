@@ -15,13 +15,63 @@ Il répond à partir des sources officielles à jour (Légifrance, code.travail.
 
 ## Installation
 
-**Claude Code** — lier le dossier dans les skills utilisateur :
+Le skill est du Markdown : il fonctionne avec tout agent capable de lire des fichiers.
 
-```sh
-ln -s ~/Projets/droit-du-travail ~/.claude/skills/droit-du-travail
+### Le plus simple : demander à votre agent
+
+Dans Claude Code, Codex ou tout agent qui a accès au terminal, copiez-collez :
+
+```
+Installe le skill du repo github https://github.com/thomandre/droit-du-travail
 ```
 
-**claude.ai** — zipper le dossier et l'importer dans *Settings → Capabilities → Skills*.
+### Préparer le zip (pour les imports par upload)
+
+claude.ai et ChatGPT attendent un `.zip` dont le dossier racine contient `SKILL.md` :
+
+```sh
+git clone https://github.com/thomandre/droit-du-travail.git
+zip -r droit-du-travail.zip droit-du-travail -x 'droit-du-travail/.git/*'
+```
+
+### Claude Code
+
+```sh
+git clone https://github.com/thomandre/droit-du-travail.git ~/.claude/skills/droit-du-travail
+```
+
+Le skill se charge tout seul dès qu'une question touche au droit du travail. Pour le mettre à jour : `git -C ~/.claude/skills/droit-du-travail pull`.
+
+### Claude Desktop / claude.ai
+
+1. Dans les réglages, section *Capabilities*, activez **Code execution and file creation**. Sans cette option, l'upload échoue.
+2. Dans *Customize → Skills*, uploadez `droit-du-travail.zip`.
+
+### ChatGPT
+
+**Offres Business, Enterprise, Edu** : ChatGPT accepte l'upload de skills si l'administrateur de l'espace de travail l'autorise ([aide OpenAI](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)). Uploadez `droit-du-travail.zip`.
+
+**Offres Free / Plus / Pro** : il n'y a pas d'upload de skill. Utilisez un *Projet* (ou un GPT personnalisé) :
+
+1. Créez un projet « Droit du travail ».
+2. Collez le contenu de `SKILL.md` dans les **instructions** du projet.
+3. Ajoutez les fichiers de `references/` comme **fichiers** du projet.
+4. Activez la recherche web : le skill s'appuie sur la vérification des sources officielles.
+
+### Codex et autres agents
+
+Copiez le dossier dans le répertoire de skills de l'outil :
+
+| Outil | Dossier |
+|---|---|
+| Codex | `~/.codex/skills/` |
+| Cursor | `~/.cursor/skills/` |
+| GitHub Copilot | `~/.copilot/skills/` |
+| Gemini CLI | `~/.gemini/skills/` |
+
+### Profil
+
+Au premier usage, le skill pose quelques questions : votre statut, la taille de l'entreprise, la convention collective, le contrat. Pour ne pas répondre à chaque fois, copiez `profil.example.json` en `profil.json` dans votre dossier de travail et remplissez-le. Le fichier est ignoré par git.
 
 ## Maintenance
 
