@@ -1,0 +1,48 @@
+{
+  "_lisez_moi": "Copiez ce fichier en profil.json et remplissez-le. Le skill le lit automatiquement s'il existe et ne repose alors que les questions manquantes. N'y mettez pas de données inutilement identifiantes (nom du salarié, adresse, données de santé).",
+  "utilisateur": {
+    "role": "salarie | rh | dirigeant | manager | representant_du_personnel | conseil",
+    "intervient_pour": "sa_propre_situation | un_salarie | cadrage_general"
+  },
+  "entreprise": {
+    "effectif": null,
+    "effectif_etablissement": null,
+    "idcc": null,
+    "convention_collective": "",
+    "accords_entreprise": [],
+    "cse": null,
+    "delegue_syndical": null,
+    "localisation": "metropole | alsace_moselle | drom",
+    "secteur_particulier": ""
+  },
+  "contrat": {
+    "type": "cdi | cdd | interim | apprentissage | professionnalisation | chantier",
+    "date_entree": "AAAA-MM-JJ",
+    "anciennete_reprise": null,
+    "statut": "ouvrier | employe | tam | cadre | cadre_dirigeant",
+    "classification": "",
+    "temps_de_travail": "temps_plein | temps_partiel | forfait_jours",
+    "remuneration_brute_mensuelle": null,
+    "primes": [],
+    "periode_essai": { "duree": "", "renouvellement": null },
+    "clauses": {
+      "non_concurrence": null,
+      "dedit_formation": null,
+      "mobilite": null,
+      "preavis_contractuel": ""
+    }
+  },
+  "situation": {
+    "procedure_en_cours": "aucune | entretien_convoque | notification_faite | rupture_conventionnelle | contentieux",
+    "dates_cles": {},
+    "statut_protege": null,
+    "arret_en_cours": null,
+    "historique_disciplinaire": []
+  },
+  "chomage": {
+    "age_a_la_sortie": null,
+    "date_fin_contrat_envisagee": "AAAA-MM-JJ",
+    "deja_indemnise": null,
+    "indemnite_supra_legale_envisagee": null
+  }
+}
